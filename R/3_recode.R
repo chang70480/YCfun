@@ -115,8 +115,8 @@ rec_new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NUL
 #' @param nominal dependent variable of nominal regression type
 #'
 #' @return Data
-#' @export
-rec_dym <- function(vec=vec,DT=DT,name="dym",nominal=F){
+#' @export rec_dym
+rec.dym <- function(vec=vec,DT=DT,name="dym",nominal=F){
 	if(is.factor(vec)==F)stop()
 	temp.name<- levels(vec)
 	for(i in 1:nlevels(vec)){
@@ -137,8 +137,8 @@ rec_dym <- function(vec=vec,DT=DT,name="dym",nominal=F){
 #' @param vec vector or data_frame
 #'
 #' @return vector or data_frame
-#' @export
-re_table <- function(vec=vec){
+#' @export re.table
+re.table <- function(vec=vec){
 	if("data.frame" %in% class(vec)){
 		for (i in 1:length(vec)) {
 			attr(vec[[i]],"table") <- table(vec[[i]],useNA = 'always')
