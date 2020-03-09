@@ -162,18 +162,6 @@ nato <- function(vec,to){
 }
 
 
-#' recode NA in vector
-#'
-#' recode NA into ???
-#' @param vec vector
-#' @param to recode into ?
-#'
-#' @return vector
-#' @export
-nato <- function(vec,to){
-	vec[is.na(vec)] <- to
-	return(vec)
-}
 
 #' high efficiency recode
 #'

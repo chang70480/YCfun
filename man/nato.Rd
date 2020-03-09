@@ -5,8 +5,6 @@
 \title{recode NA}
 \usage{
 nato(vec, to)
-
-nato(vec, to)
 }
 \arguments{
 \item{vec}{vector}
@@ -15,11 +13,7 @@ nato(vec, to)
 }
 \value{
 vector
-
-vector
 }
 \description{
 recode NA into specific value
-
-recode NA into ???
 }

@@ -13,8 +13,12 @@
 #' @import foreign
 #' @import readstata13
 YCstart <- function(){
+	ch <- NULL
 	for (i in c("sjmisc","tibble","readr","readxl","magrittr","dplyr","foreign","readstata13")) {
-		if(! i %in%rownames(installed.packages()))install.packages(i)
+		if(! i %in%rownames(installed.packages())){
+			install.packages(i)
+			ch <- T
+		}
 	}
 	library(sjmisc)
 	library(tibble)
@@ -24,5 +28,6 @@ YCstart <- function(){
 	library(dplyr)
 	library(foreign)
 	library(readstata13)
+	if(is.null(ch))cat("\nall have been installed!")
 }
 

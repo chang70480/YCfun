@@ -1,0 +1,28 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Download and start
+```{r ,eval=F}
+#Download from github
+library(devtools)
+install_github("chang70480/YCfun")
+#wait fot installing
+
+library(YCfun)
+
+#check other packages have been installed.
+YCstart()
+```
+
+
+
+## Cheat sheet
+
+```{r pressure, echo=FALSE,out.width='100%'}
+knitr::include_graphics("cheat_sheet.png")
+```

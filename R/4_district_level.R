@@ -1,13 +1,13 @@
 #' Urban and rural value
 #'
-#' \code{record_city} can recode postal code into district developing level
+#' \code{recode_city} can recode postal code into district developing level
 #'
 #' @param vec postal code
 #' @param type 3 level(+ foreign) or 7 level(+ foreign)
 #' @param Nato NA recode into ?
 #'
 #' @export
-record_city <- function(vec,type=c(8,4),Nato=c(NA,"copy")){
+recode_city <- function(vec,type=c(8,4),Nato=c(NA,"copy")){
 	require(sjmisc)
 city <- "
 105=1;110=1;106=1;104=1;100=1;103=1;108=1;220=1;241=1;235=1;234=1;242=1;247=1;
