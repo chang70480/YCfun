@@ -115,7 +115,7 @@ rec_new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NUL
 #' @param nominal dependent variable of nominal regression type
 #'
 #' @return Data
-#' @export rec_dym
+#' @export rec.dym
 rec.dym <- function(vec=vec,DT=DT,name="dym",nominal=F){
 	if(is.factor(vec)==F)stop()
 	temp.name<- levels(vec)
