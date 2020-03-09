@@ -24,5 +24,5 @@ YCstart()
 ## Cheat sheet
 
 ```{r pressure, echo=FALSE,out.width='100%'}
-knitr::include_graphics("cheat_sheet.png")
+knitr::include_graphics("inst/pk_test/cheat_sheet.png")
 ```

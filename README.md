@@ -14,4 +14,4 @@ Download and start
 Cheat sheet
 -----------
 
-<img src="cheat_sheet.png" width="100%" />
+<img src="inst/pk_test/cheat_sheet.png" width="100%" />
