@@ -1,0 +1,30 @@
+Package: YCfun
+Type: Package
+Title: YC fucntion
+Version: 0.1.1
+Author: person("Y.C.","Chang",email="chang70480@gmail.com",role = c("aut", "cre"))
+Maintainer: The package maintainer <chang70480@gmail.com>
+Description: This package can help you deal data more effectivent
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Imports:
+	sjmisc,
+	tibble,
+	readr,
+	readxl,
+	magrittr,
+	dplyr,
+	foreign,
+	readstata13,
+	lubridate,
+Suggest:
+
+
+
+
+
+
+
+
