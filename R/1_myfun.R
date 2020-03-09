@@ -154,7 +154,7 @@ select_max <- function(vec,rank=1,na.rm='no',na.replace=NA,check0=T){
 }
 
 
-#' Title list duplicated data
+#' list duplicated data
 #'
 #' @param DT_ data_frame
 #' @param ... comapring variable

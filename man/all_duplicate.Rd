@@ -2,7 +2,7 @@
 % Please edit documentation in R/1_myfun.R
 \name{all_duplicate}
 \alias{all_duplicate}
-\title{Title list duplicated data}
+\title{list duplicated data}
 \usage{
 all_duplicate(DT_, ...)
 }
@@ -15,5 +15,5 @@ all_duplicate(DT_, ...)
 data_frame. duplicated data
 }
 \description{
-Title list duplicated data
+list duplicated data
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/3_recode.R
 \name{nato}
 \alias{nato}
-\title{Title recode NA in vector}
+\title{recode NA}
 \usage{
 nato(vec, to)
 
@@ -19,7 +19,7 @@ vector
 vector
 }
 \description{
-recode NA into ???
+recode NA into specific value
 
 recode NA into ???
 }

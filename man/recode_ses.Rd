@@ -2,7 +2,7 @@
 % Please edit documentation in R/5_ses_scale.R
 \name{recode_ses}
 \alias{recode_ses}
-\title{trasform work codes}
+\title{trasform isco/tsco codes}
 \usage{
 recode_ses(vec = NULL, from = "isco08", to = "ISEI", notchange = c(NA, "copy"))
 }

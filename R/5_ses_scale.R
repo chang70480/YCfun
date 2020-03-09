@@ -1,4 +1,4 @@
-#' trasform work codes
+#' trasform isco/tsco codes
 #'
 #' \code{recode_ses} This function can trasform work index codes into ses value, and trasform from one index sturcture into the other sturcture.
 #'

@@ -149,9 +149,9 @@ re.table <- function(vec=vec){
 	return(vec)
 }
 
-#' Title recode NA in vector
+#' recode NA
 #'
-#' recode NA into ???
+#' recode NA into specific value
 #' @param vec vector
 #' @param to recode into ?
 #'
@@ -162,7 +162,7 @@ nato <- function(vec,to){
 }
 
 
-#' Title recode NA in vector
+#' recode NA in vector
 #'
 #' recode NA into ???
 #' @param vec vector
@@ -175,7 +175,7 @@ nato <- function(vec,to){
 	return(vec)
 }
 
-#' Title high efficiency recode
+#' high efficiency recode
 #'
 #' when recode rules are more than 10000, this function is more efficienct
 #' @param recordtab data_frame. The table of the recode rule. V1 is old value; V2 is new value

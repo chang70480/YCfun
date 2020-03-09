@@ -2,7 +2,7 @@
 % Please edit documentation in R/3_recode.R
 \name{change_posi}
 \alias{change_posi}
-\title{Title high efficiency recode}
+\title{high efficiency recode}
 \usage{
 change_posi(recordtab, old = NULL, quickNA = T)
 }
