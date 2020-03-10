@@ -68,10 +68,12 @@ rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'f',ref = "mid")
 ```
 ### numeric to character
 ```{r}
-DT$newedu <- rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'c')
+DT$neweduc <- rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'c')
+DT$neweduc
 ```
 
 ### character to numeric
 ```{r}
-DT$newedu <- rec_new(DT$newedu,"no=1;low=2;mid=3;high=4")
+DT$newedun <- rec_new(DT$neweduc,"no=1;low=2;mid=3;high=4")
+DT$newedun
 ```
