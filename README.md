@@ -298,3 +298,21 @@ tscs()
     ## tscs161-家庭       tscs162-公民與國家
     ## tscs171-社會階層     tscs172-社會網絡
     ## tscs181-宗教與文化
+
+you can choose data from tscsPhase1~7
+
+``` r
+DT <- tscsPhase7$`tscs151-綜合.sav`
+
+head(DT[20:30])
+```
+
+    ## # A tibble: 6 x 11
+    ##      v1   v2y   v2m   v2a v3city kv3city v3zip    v4 kv4      v5 kv5  
+    ##   <dbl> <dbl> <dbl> <dbl>  <dbl> <chr>   <dbl> <dbl> <chr> <dbl> <chr>
+    ## 1     1    70    11   996      2 ""        111     1 ""        1 ""   
+    ## 2     1    74     7   996      9 ""        500     1 ""        2 ""   
+    ## 3     2    61     2   996      2 ""        103     1 ""        1 ""   
+    ## 4     2    47     1   996      9 ""        520     1 ""        1 ""   
+    ## 5     1    64     8   996      2 ""        103     1 ""        1 ""   
+    ## 6     1    35     7   996      3 ""        236     1 ""        1 ""

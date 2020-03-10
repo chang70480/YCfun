@@ -99,4 +99,10 @@ show data
 ```{r}
 tscs()
 ```
+you can choose data from tscsPhase1~7
+```{r}
+DT <- tscsPhase7$`tscs151-綜合.sav`
+
+head(DT[20:30])
+```
 
