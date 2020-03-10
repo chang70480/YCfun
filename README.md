@@ -23,16 +23,8 @@ Read data
 
 ``` r
 DT <- makeDT_lab(dir = system.file("extdata/tscs151.sav",package = "YCfun"))
-```
-
-    ## Warning in read.spss(file = dir, use.value.labels = F, to.data.frame =
-    ## T): /Library/Frameworks/R.framework/Versions/3.5/Resources/library/YCfun/
-    ## extdata/tscs151.sav: Long string value labels record found (record type 7,
-    ## subtype 21), but ignored
-
-    ## re-encoding from CP950
-
-``` r
+## re-encoding from CP950  
+  
 DT$v6a
 ```
 

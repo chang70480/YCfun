@@ -35,8 +35,10 @@ knitr::include_graphics("inst/pk_test/cheat_sheet.png")
 
 ##Read data
 
-```{r}
+```{r,warning=FALSE,message=F}
 DT <- makeDT_lab(dir = system.file("extdata/tscs151.sav",package = "YCfun"))
+## re-encoding from CP950  
+  
 DT$v6a
 ```
 
