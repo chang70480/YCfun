@@ -91,4 +91,12 @@ only for factor
 DT_new <- rec.dym(DT$edu,DT = DT[c("id","neweduc")],name = "edu_")
 DT_new 
 ```
+  
+  
+  
+#TSCS data
+show data
+```{r}
+tscs()
+```
 
