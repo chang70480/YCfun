@@ -87,6 +87,7 @@ Recoding
 --------
 
 This function is based on sjmisc package
+rec\_new can recode in four datatypes, including numeric, factor, character, logical
 
 ### numeric to numeric
 
@@ -165,26 +166,11 @@ rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'f',ref = "mid")
 ### numeric to character
 
 ``` r
-rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'c')
+DT$newedu <- rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'c')
 ```
 
-    ##  [1] "mid"  "high" "high" "mid"  "mid"  "high" "low"  "low"  "high" "mid" 
-    ## [11] "high" "low"  "mid"  "high" "low"  "mid"  "mid"  "high" "mid"  "mid" 
-    ## [21] "high" "low"  "low"  "high" "mid"  "low"  "high" "high" "high" "high"
-    ## [31] "high" "high" "high" "high" "high" "high" "mid"  "high" "high" "high"
-    ## [41] "low"  "high" "mid"  "high" "low"  "high" "mid"  "high" "high" "low" 
-    ##  [ reached getOption("max.print") -- omitted 1984 entries ]
-    ## attr(,"variable.labels")
-    ## [1] "6a.請問您的教育程度是?"
-    ## attr(,"old.table")
-    ## 
-    ##    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15 
-    ##   95   16  289  251    6   86   16  428    4   57  130   18    3    8    4 
-    ##   16   17   18   19   20   21   22   97 <NA> 
-    ##    5    7  207  271  111   17    3    2    0 
-    ## attr(,"new_labels")
-    ## [1] "1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA   class:character"
-    ## attr(,"table")
-    ## temp.vec
-    ## high  low  mid   no <NA> 
-    ##  838  546  534  111    5
+### character to numeric
+
+``` r
+DT$newedu <- rec_new(DT$newedu,"no=1;low=2;mid=3;high=4")
+```
