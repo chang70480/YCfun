@@ -11,6 +11,8 @@
 #' @return edgelist data_frame
 #' @export
 getRC <- function(matrix,condiction,weight=F,undirected=F,igraph=F){
+	require(igraph)
+
 	if(is.null(rownames(matrix)))rownames(matrix) <- 1:nrow(matrix)
 	if(is.null(colnames(matrix)))colnames(matrix) <- 1:ncol(matrix)
 	if(undirected)matrix[lower.tri(matrix,diag = F)] <- 0
@@ -50,7 +52,6 @@ getRC <- function(matrix,condiction,weight=F,undirected=F,igraph=F){
 #' @examples You can see \href{https://chang70480.github.io/YCfun/inst/html_demo/twomode_onemode.html}{here}.
 twomode_onemode <- function(edge.list=edge.list,type=1,binary=F,cut.at=1,twopath=F,outpute=c("adjacency","edgelist1","edgelist2","edgelist3")){
 	require(igraph)
-	require(tibble)
 	if(!is.data.frame(edge.list))stop()
 	if(ncol(edge.list)!=2)stop()
 
@@ -111,6 +112,8 @@ twomode_onemode <- function(edge.list=edge.list,type=1,binary=F,cut.at=1,twopath
 #' @return matrix
 #' @export
 isolate_posi <- function(l,a=0.7,irq=1.5){
+	require(igraph)
+
 	IQR_outliers <- function(x,dis_time=1.5) {
 		if(any(is.na(x)))
 			stop("x is missing values")

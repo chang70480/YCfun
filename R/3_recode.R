@@ -27,10 +27,11 @@ rec_range<- function(nuc.vec=NULL,to.min=NULL,to.max=NULL,dot=0){
 #' @param ref it works only when type=="f". You can chose which factor level being reference group.
 #' @param level it works only when type=="f". You can rerank  factor levels order.
 #' @param labels it works only when type=="f". Recording recode rule.
+#' @param keep_vl default=F. Keep value.labels.
 #'
 #' @return vector
 #' @export rec.new
-rec.new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NULL,labels=T){
+rec.new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NULL,labels=T,keep_vl=F){
 	if(is.null(vec)|is.null(vec))stop()
 	type <- type[1]
 	if(class(vec)=="factor")vec <- as.character(vec)
@@ -57,7 +58,7 @@ rec.new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NUL
 		attr(temp.vec,"new_labels") <- paste0(rec,"   class:",class(temp.vec))
 	}
 	attr(temp.vec,"table") <- table(temp.vec,useNA = "always")
-
+	if(!keep_vl)attr(temp.vec,"value.labels") <- NULL
 	return(temp.vec)
 }
 
@@ -71,10 +72,11 @@ rec.new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NUL
 #' @param ref it works only when type=="f". You can chose which factor level being reference group.
 #' @param level it works only when type=="f". You can rerank  factor levels order.
 #' @param labels it works only when type=="f". Recording recode rule.
+#' @param keep_vl default=F. Keep value.labels.
 #'
 #' @return vector
 #' @export
-rec_new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NULL,labels=T){
+rec_new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NULL,labels=T,keep_vl){
 	if(is.null(vec)|is.null(vec))stop()
 	type <- type[1]
 	if(class(vec)=="factor")vec <- as.character(vec)
@@ -101,6 +103,7 @@ rec_new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NUL
 		attr(temp.vec,"new_labels") <- paste0(rec,"   class:",class(temp.vec))
 	}
 	attr(temp.vec,"table") <- table(temp.vec,useNA = "always")
+	if(!keep_vl)attr(temp.vec,"value.labels") <- NULL
 
 	return(temp.vec)
 }

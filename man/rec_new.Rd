@@ -10,7 +10,8 @@ rec_new(
   type = c("n", "f", "c", "l"),
   ref = NULL,
   level = NULL,
-  labels = T
+  labels = T,
+  keep_vl
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ rec_new(
 \item{level}{it works only when type=="f". You can rerank  factor levels order.}
 
 \item{labels}{it works only when type=="f". Recording recode rule.}
+
+\item{keep_vl}{default=F. Keep value.labels.}
 }
 \value{
 vector

@@ -18,6 +18,7 @@ Imports:
 	dplyr,
 	foreign,
 	readstata13,
+	igraph,
 	lubridate,
 Suggest:
 
