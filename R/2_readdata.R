@@ -4,14 +4,14 @@
 #'
 #' There are three attribute providing for user to konw variable information in each variables. One is \code{variable.labels}, which provides explanation of variable, the other is \code{value.labels},which provides value label for user to contrast value to it's meaning, and the other is \code{table} which summarises variable distribution.
 #'
-#' @param dir file path
+#' @param path file path
 #' @param type default="sav". Read dta(stata) or sav(spss)
 #' @param label_length default=200. how long \code{variable.labels} you want
 #' @param reencode default="Utf-8". some data need to change into "Big5"
 #'
 #' @return data_frame
 #' @export
-makeDT_lab <- function(dir="",type=c("sav","dta"),label_length=200,reencode=NULL){
+makeDT_lab <- function(path="",type=c("sav","dta"),label_length=200,reencode=NULL){
 	ll <- function(vec){
 		if(length(vec)>label_length){
 			return(vec[1:label_length])
@@ -22,9 +22,9 @@ makeDT_lab <- function(dir="",type=c("sav","dta"),label_length=200,reencode=NULL
 	if(type[1]=="sav"){
 		library(foreign)
 		if(is.null(reencode)){
-			DT <- read.spss(file = dir,use.value.labels = F,to.data.frame = T)
+			DT <- read.spss(file = path,use.value.labels = F,to.data.frame = T)
 		}else{
-			DT <- read.spss(file = dir,use.value.labels = F,to.data.frame = T,reencode = reencode)
+			DT <- read.spss(file = path,use.value.labels = F,to.data.frame = T,reencode = reencode)
 
 		}
 		temp.lab<- attr(DT,"variable.labels")
@@ -44,11 +44,11 @@ makeDT_lab <- function(dir="",type=c("sav","dta"),label_length=200,reencode=NULL
 
 		library(readstata13)
 		if(is.null(reencode)){
-			DT_ <- read.dta13(dir,convert.factors = T,generate.factors = T,nonint.factors = T)
-			DT_n <- read.dta13(dir,convert.factors = T,generate.factors = T,nonint.factors = F)
+			DT_ <- read.dta13(path,convert.factors = T,generate.factors = T,nonint.factors = T)
+			DT_n <- read.dta13(path,convert.factors = T,generate.factors = T,nonint.factors = F)
 		}else{
-			DT_ <- read.dta13(dir,convert.factors = T,generate.factors = T,nonint.factors = T,encoding = reencode)
-			DT_n <- read.dta13(dir,convert.factors = T,generate.factors = T,nonint.factors = F,encoding = reencode)
+			DT_ <- read.dta13(path,convert.factors = T,generate.factors = T,nonint.factors = T,encoding = reencode)
+			DT_n <- read.dta13(path,convert.factors = T,generate.factors = T,nonint.factors = F,encoding = reencode)
 		}
 
 		attr(DT_n,"variable.labels") <- varlabel(DT_n)

@@ -5,14 +5,14 @@
 \title{\code{makeDT.lab} read spss and dta}
 \usage{
 makeDT_lab(
-  dir = "",
+  path = "",
   type = c("sav", "dta"),
   label_length = 200,
   reencode = NULL
 )
 }
 \arguments{
-\item{dir}{file path}
+\item{path}{file path}
 
 \item{type}{default="sav". Read dta(stata) or sav(spss)}
 
