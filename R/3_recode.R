@@ -76,7 +76,7 @@ rec.new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NUL
 #'
 #' @return vector
 #' @export
-rec_new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NULL,labels=T,keep_vl){
+rec_new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NULL,labels=T,keep_vl=F){
 	if(is.null(vec)|is.null(vec))stop()
 	type <- type[1]
 	if(class(vec)=="factor")vec <- as.character(vec)

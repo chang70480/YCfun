@@ -11,7 +11,7 @@ rec_new(
   ref = NULL,
   level = NULL,
   labels = T,
-  keep_vl
+  keep_vl = F
 )
 }
 \arguments{
