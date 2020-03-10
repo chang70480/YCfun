@@ -1,4 +1,5 @@
 ---
+title: introduction to YCfun
 output:
   md_document:
     variant: markdown_github
