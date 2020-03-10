@@ -23,7 +23,11 @@ YCstart <- function(lib=F){
 		}
 	}
 	if(lib){
-		library(tidyverse,readxl,magrittr,foreign,sjmisc)
+		library(tidyverse)
+		library(readxl)
+		library(magrittr)
+		library(foreign)
+		library(sjmisc)
 	}
 	if(is.null(ch))cat("\nall have been installed!")
 }
