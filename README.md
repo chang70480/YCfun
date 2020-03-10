@@ -113,7 +113,7 @@ rec_new(DT$v6a,"1,2=1;3=2;4,5=3;6,7,8,9=4;10:15=5;16:19=6;20=7;21=8;97=NA;else=c
     ##    1    2    3    4    5    6    7    8   22 <NA> 
     ##  111  289  257  534  220  490  111   17    3    2
 
-### numeric to factor, and can set reference gorup
+### numeric to factor, and can set reference group=4
 
 ``` r
 rec_new(DT$v6a,"1,2=1;3=2;4,5=3;6,7,8,9=4;10:15=5;16:19=6;20=7;21=8;else=NA",'f',ref = 4)
