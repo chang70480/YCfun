@@ -4,7 +4,10 @@
 \alias{YCstart}
 \title{YC package start}
 \usage{
-YCstart()
+YCstart(lib = F)
+}
+\arguments{
+\item{lib}{libary all package. This can be F.}
 }
 \description{
 YC package start
