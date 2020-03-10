@@ -101,8 +101,9 @@ tscs()
 ```
 you can choose data from tscsPhase1~7
 ```{r}
-DT <- tscsPhase7$`tscs151-綜合.sav`
+tscs151 <- tscsPhase7$`tscs151-綜合.sav`
 
-head(DT[20:30])
+head(tscs151[20:30])
+tscs151$v30
 ```
 

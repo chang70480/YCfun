@@ -302,9 +302,9 @@ tscs()
 you can choose data from tscsPhase1~7
 
 ``` r
-DT <- tscsPhase7$`tscs151-綜合.sav`
+tscs151 <- tscsPhase7$`tscs151-綜合.sav`
 
-head(DT[20:30])
+head(tscs151[20:30])
 ```
 
     ## # A tibble: 6 x 11
@@ -316,3 +316,20 @@ head(DT[20:30])
     ## 4     2    47     1   996      9 ""        520     1 ""        1 ""   
     ## 5     1    64     8   996      2 ""        103     1 ""        1 ""   
     ## 6     1    35     7   996      3 ""        236     1 ""        1 ""
+
+``` r
+tscs151$v30
+```
+
+    ##  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 2 1 2 2 1 2 1 2 2 2 1 2 2
+    ## [36] 2 1 1 1 1 1 1 1 1 2 1 2 1 1 2
+    ##  [ reached getOption("max.print") -- omitted 1984 entries ]
+    ## attr(,"value.labels")
+    ## 遺漏值   拒答 不知道   跳答   沒有     有 
+    ##   "99"   "98"   "97"   "96"    "2"    "1" 
+    ## attr(,"variable.labels")
+    ## [1] "30.請問您和您的配偶有沒有為了退休後的生活費用而儲蓄?"
+    ## attr(,"table")
+    ## 
+    ##    1    2   97 <NA> 
+    ## 1280  747    7    0
