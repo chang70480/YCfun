@@ -1,9 +1,13 @@
 ---
-output: html_document
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(sql.max.print = 50)
+library(YCfun)
 ```
 
 ## Download and start
@@ -19,10 +23,32 @@ library(YCfun)
 YCstart()
 ```
 
-
-
+  
 ## Cheat sheet
-
+  
 ```{r pressure, echo=FALSE,out.width='100%'}
 knitr::include_graphics("inst/pk_test/cheat_sheet.png")
+
 ```
+
+##Read data
+
+```{r}
+DT <- makeDT_lab(dir = system.file("extdata/tscs151.sav",package = "YCfun"))
+DT$v6a
+```
+
+
+##Variable table
+```{r}
+DT_var <- makeDT_var(DT)
+DT_var[20:30,]
+```
+
+
+
+# ```{r setup, include=FALSE,eval=F}
+# library(rmarkdown)
+# render("~/Documents/GitHub/YCfun/README.Rmd",md_document())
+# 
+# ```
