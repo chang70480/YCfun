@@ -87,7 +87,8 @@ Recoding
 --------
 
 This function is based on sjmisc package.
-  rec\_new can recode in four datatypes, including numeric, factor, character, logical.
+
+rec\_new can recode in four datatypes, including numeric, factor, character, logical.
 
 ### numeric to numeric
 
