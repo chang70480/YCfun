@@ -6,7 +6,9 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(sql.max.print = 50)
+#knitr::opts_knit$set(max.print = 50)
+options(max.print = 100)
+
 library(YCfun)
 ```
 
@@ -47,8 +49,8 @@ DT_var[20:30,]
 
 
 
-# ```{r setup, include=FALSE,eval=F}
-# library(rmarkdown)
-# render("~/Documents/GitHub/YCfun/README.Rmd",md_document())
-# 
-# ```
+```{r include=FALSE,eval=F}
+library(rmarkdown)
+render("~/Documents/GitHub/YCfun/README.Rmd",md_document())
+
+```
