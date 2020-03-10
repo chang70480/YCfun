@@ -22,18 +22,16 @@ Read data
 ---------
 
 ``` r
-DT <- makeDT_lab(dir = system.file("extdata/tscs151.sav",package = "YCfun"))
+DT <- makeDT_lab(path = system.file("extdata/tscs151.sav",package = "YCfun"))
 ## re-encoding from CP950  
   
 DT$v6a
 ```
 
-    ##   [1]  8 19 20  8  8 19  4  4 19  8 11  4  8 19  4  6  6 10  6  8 20  3  4
-    ##  [24] 20  8  4 20 20 11 10 20 19 11 18 19 19  8 20 19 19  3 19  8 19  4 19
-    ##  [47]  8 12 11  3 19  1 19  4  4 17 19 10  4  2  3 11 21 19 10 18 19 19 19
-    ##  [70] 19 19  8 20 20 20 19 20 12 20 19 10 11 19 19 20  8 20 18  8 19 11  6
-    ##  [93]  8 19 19 19 19 19  6 19
-    ##  [ reached getOption("max.print") -- omitted 1934 entries ]
+    ##  [1]  8 19 20  8  8 19  4  4 19  8 11  4  8 19  4  6  6 10  6  8 20  3  4
+    ## [24] 20  8  4 20 20 11 10 20 19 11 18 19 19  8 20 19 19  3 19  8 19  4 19
+    ## [47]  8 12 11  3
+    ##  [ reached getOption("max.print") -- omitted 1984 entries ]
     ## attr(,"value.labels")
     ##                  遺漏值                    拒答                  不知道 
     ##                    "99"                    "98"                    "97" 
@@ -62,8 +60,8 @@ DT$v6a
     ##   16   17   18   19   20   21   22   97 <NA> 
     ##    5    7  207  271  111   17    3    2    0
 
-Variable table
---------------
+Variables table
+---------------
 
 ``` r
 DT_var <- makeDT_var(DT)
@@ -84,3 +82,109 @@ DT_var[20:30,]
     ##  9 kv4     4.請問您父親是哪裡人?其他                        
     ## 10 v5      5.請問您母親是哪裡人?                            
     ## 11 kv5     5.請問您母親是哪裡人?其他
+
+Recoding
+--------
+
+This function is based on sjmisc package
+
+### numeric to numeric
+
+``` r
+rec_new(DT$v6a,"1,2=1;3=2;4,5=3;6,7,8,9=4;10:15=5;16:19=6;20=7;21=8;97=NA;else=copy")
+```
+
+    ##  [1] 4 6 7 4 4 6 3 3 6 4 5 3 4 6 3 4 4 5 4 4 7 2 3 7 4 3 7 7 5 5 7 6 5 6 6
+    ## [36] 6 4 7 6 6 2 6 4 6 3 6 4 5 5 2
+    ##  [ reached getOption("max.print") -- omitted 1984 entries ]
+    ## attr(,"variable.labels")
+    ## [1] "6a.請問您的教育程度是?"
+    ## attr(,"old.table")
+    ## 
+    ##    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15 
+    ##   95   16  289  251    6   86   16  428    4   57  130   18    3    8    4 
+    ##   16   17   18   19   20   21   22   97 <NA> 
+    ##    5    7  207  271  111   17    3    2    0 
+    ## attr(,"new_labels")
+    ## [1] "1,2=1;3=2;4,5=3;6,7,8,9=4;10:15=5;16:19=6;20=7;21=8;97=NA;else=copy   class:numeric"
+    ## attr(,"table")
+    ## temp.vec
+    ##    1    2    3    4    5    6    7    8   22 <NA> 
+    ##  111  289  257  534  220  490  111   17    3    2
+
+### numeric to factor, and can set reference gorup
+
+``` r
+rec_new(DT$v6a,"1,2=1;3=2;4,5=3;6,7,8,9=4;10:15=5;16:19=6;20=7;21=8;else=NA",'f',ref = 4)
+```
+
+    ##  [1] 4 6 7 4 4 6 3 3 6 4 5 3 4 6 3 4 4 5 4 4 7 2 3 7 4 3 7 7 5 5 7 6 5 6 6
+    ## [36] 6 4 7 6 6 2 6 4 6 3 6 4 5 5 2
+    ##  [ reached getOption("max.print") -- omitted 1984 entries ]
+    ## attr(,"variable.labels")
+    ## [1] 6a.請問您的教育程度是?
+    ## attr(,"old.table")
+    ## 
+    ##    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15 
+    ##   95   16  289  251    6   86   16  428    4   57  130   18    3    8    4 
+    ##   16   17   18   19   20   21   22   97 <NA> 
+    ##    5    7  207  271  111   17    3    2    0 
+    ## attr(,"new_labels")
+    ## [1] 1,2=1;3=2;4,5=3;6,7,8,9=4;10:15=5;16:19=6;20=7;21=8;else=NA   class:factor
+    ## attr(,"table")
+    ## temp.vec
+    ##    4    1    2    3    5    6    7    8 <NA> 
+    ##  534  111  289  257  220  490  111   17    5 
+    ## Levels: 4 1 2 3 5 6 7 8
+
+``` r
+rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'f',ref = "mid")
+```
+
+    ##  [1] mid  high high mid  mid  high low  low  high mid  high low  mid  high
+    ## [15] low  mid  mid  high mid  mid  high low  low  high mid  low  high high
+    ## [29] high high high high high high high high mid  high high high low  high
+    ## [43] mid  high low  high mid  high high low 
+    ##  [ reached getOption("max.print") -- omitted 1984 entries ]
+    ## attr(,"variable.labels")
+    ## [1] 6a.請問您的教育程度是?
+    ## attr(,"old.table")
+    ## 
+    ##    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15 
+    ##   95   16  289  251    6   86   16  428    4   57  130   18    3    8    4 
+    ##   16   17   18   19   20   21   22   97 <NA> 
+    ##    5    7  207  271  111   17    3    2    0 
+    ## attr(,"new_labels")
+    ## [1] 1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA   class:factor
+    ## attr(,"table")
+    ## temp.vec
+    ##  mid high  low   no <NA> 
+    ##  534  838  546  111    5 
+    ## Levels: mid high low no
+
+### numeric to character
+
+``` r
+rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'c')
+```
+
+    ##  [1] "mid"  "high" "high" "mid"  "mid"  "high" "low"  "low"  "high" "mid" 
+    ## [11] "high" "low"  "mid"  "high" "low"  "mid"  "mid"  "high" "mid"  "mid" 
+    ## [21] "high" "low"  "low"  "high" "mid"  "low"  "high" "high" "high" "high"
+    ## [31] "high" "high" "high" "high" "high" "high" "mid"  "high" "high" "high"
+    ## [41] "low"  "high" "mid"  "high" "low"  "high" "mid"  "high" "high" "low" 
+    ##  [ reached getOption("max.print") -- omitted 1984 entries ]
+    ## attr(,"variable.labels")
+    ## [1] "6a.請問您的教育程度是?"
+    ## attr(,"old.table")
+    ## 
+    ##    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15 
+    ##   95   16  289  251    6   86   16  428    4   57  130   18    3    8    4 
+    ##   16   17   18   19   20   21   22   97 <NA> 
+    ##    5    7  207  271  111   17    3    2    0 
+    ## attr(,"new_labels")
+    ## [1] "1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA   class:character"
+    ## attr(,"table")
+    ## temp.vec
+    ## high  low  mid   no <NA> 
+    ##  838  546  534  111    5

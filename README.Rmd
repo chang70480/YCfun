@@ -1,14 +1,14 @@
 ---
 output: 
-  html_document
   md_document:
     variant: markdown_github
+    
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 #knitr::opts_knit$set(max.print = 50)
-options(max.print = 100)
+options(max.print = 50)
 
 library(YCfun)
 ```
@@ -36,7 +36,7 @@ knitr::include_graphics("inst/pk_test/cheat_sheet.png")
   
 ##Read data
 ```{r,warning=FALSE,message=F}
-DT <- makeDT_lab(dir = system.file("extdata/tscs151.sav",package = "YCfun"))
+DT <- makeDT_lab(path = system.file("extdata/tscs151.sav",package = "YCfun"))
 ## re-encoding from CP950  
   
 DT$v6a
@@ -51,8 +51,21 @@ DT_var[20:30,]
   
   
 ## Recoding
-This function is based on sjmisc package
-```{r}
-rec_new(DT$v6a,"1,2=1;3=2;4,5=3;6,7,8,9=4;10:15=5;16:19=6;20=7;21=8;97=NA;esle=copy")
-```
+This function is based on sjmisc package  
 
+### numeric to numeric
+```{r}
+rec_new(DT$v6a,"1,2=1;3=2;4,5=3;6,7,8,9=4;10:15=5;16:19=6;20=7;21=8;97=NA;else=copy")
+```
+  
+### numeric to factor, and can set reference gorup
+```{r}
+rec_new(DT$v6a,"1,2=1;3=2;4,5=3;6,7,8,9=4;10:15=5;16:19=6;20=7;21=8;else=NA",'f',ref = 4)
+```
+```{r}
+rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'f',ref = "mid")
+```
+### numeric to character
+```{r}
+rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'c')
+```
