@@ -1,10 +1,10 @@
 Package: YCfun
 Type: Package
-Title: YC fucntion
+Title: YC function
 Version: 0.1.1
 Author: person("Y.C.","Chang",email="chang70480@gmail.com",role = c("aut", "cre"))
 Maintainer: The package maintainer <chang70480@gmail.com>
-Description: This package can help you deal data more effectivent
+Description: This package can help you deal data more effectivently
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
