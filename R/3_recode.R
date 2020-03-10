@@ -120,7 +120,7 @@ rec_new <- function(vec=NULL,rec=NULL,type=c("n","f","c","l"),ref=NULL,level=NUL
 #' @return Data
 #' @export rec.dym
 rec.dym <- function(vec=vec,DT=DT,name="dym",nominal=F){
-	if(is.factor(vec)==F)stop()
+	if(is.factor(vec)==F)stop("vec must be factor")
 	temp.name<- levels(vec)
 	for(i in 1:nlevels(vec)){
 		DT[[paste0(name,temp.name[i])]] <- as.numeric(vec==temp.name[i])

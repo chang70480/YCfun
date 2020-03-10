@@ -140,7 +140,8 @@ rec_new(DT$v6a,"1,2=1;3=2;4,5=3;6,7,8,9=4;10:15=5;16:19=6;20=7;21=8;else=NA",'f'
     ## Levels: 4 1 2 3 5 6 7 8
 
 ``` r
-rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'f',ref = "mid")
+DT$edu <- rec_new(DT$v6a,"1,2=no;3:5=low;6,7,8,9=mid;10:21=high;else=NA",'f',ref = "mid")
+DT$edu 
 ```
 
     ##  [1] mid  high high mid  mid  high low  low  high mid  high low  mid  high
@@ -214,3 +215,28 @@ DT$newedun
     ## temp.vec
     ##    1    2    3    4 <NA> 
     ##  111  546  534  838    5
+
+Make dummy variable
+===================
+
+only for factor
+
+``` r
+DT_new <- rec.dym(DT$edu,DT = DT[c("id","neweduc")],name = "edu_")
+DT_new 
+```
+
+    ## # A tibble: 2,034 x 6
+    ##        id neweduc edu_mid edu_high edu_low edu_no
+    ##     <dbl> <chr>     <dbl>    <dbl>   <dbl>  <dbl>
+    ##  1 103101 mid           1        0       0      0
+    ##  2 103110 high          0        1       0      0
+    ##  3 103111 high          0        1       0      0
+    ##  4 103112 mid           1        0       0      0
+    ##  5 103116 mid           1        0       0      0
+    ##  6 103118 high          0        1       0      0
+    ##  7 103120 low           0        0       1      0
+    ##  8 103121 low           0        0       1      0
+    ##  9 103123 high          0        1       0      0
+    ## 10 103127 mid           1        0       0      0
+    ## # … with 2,024 more rows
