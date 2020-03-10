@@ -216,8 +216,8 @@ DT$newedun
     ##    1    2    3    4 <NA> 
     ##  111  546  534  838    5
 
-Make dummy variable
-===================
+Make dummy variables
+====================
 
 only for factor
 

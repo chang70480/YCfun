@@ -85,7 +85,7 @@ DT$newedun
 ```
   
   
-#Make dummy variable  
+#Make dummy variables  
 only for factor  
 ```{r}
 DT_new <- rec.dym(DT$edu,DT = DT[c("id","neweduc")],name = "edu_")
