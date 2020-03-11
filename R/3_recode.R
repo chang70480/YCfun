@@ -158,6 +158,7 @@ re.table <- function(vec=vec){
 #' @param vec vector
 #' @param to recode into ?
 #'
+#' @export
 #' @return vector
 nato <- function(vec,to){
 	vec[is.na(vec)] <- to
