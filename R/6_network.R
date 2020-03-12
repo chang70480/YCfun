@@ -85,12 +85,14 @@ twomode_onemode <- function(edge.list=edge.list,type=1,binary=F,cut.at=1,twopath
 		b_matrix[b_matrix>=1] <- 1
 
 		igraph.matrix <- graph_from_adjacency_matrix(b_matrix,mode="undirected")
-		el <- as_edgelist(igraph.matrix) %>% tibble::as_data_frame(.)
+		el <- as_edgelist(igraph.matrix)
+		colnames(el) <- c("V1","V2")
+		el <- tibble::as_data_frame(el)
 		if(outpute[1]=='edgelist2' & !binary){
-			el <- el  %>% add_column(weight= E(ne)$weight)
+			el <- el  %>% add_column(weight= as.numeric(E(ne)$weight))
 		}
 		if(outpute[1]=='edgelist3' & !binary){
-			el <- el  %>% add_column(weight= E(ne)$weight)
+			el <- el  %>% add_column(weight= as.numeric(E(ne)$weight))
 			posi <- lapply(1:nrow(el), function(i){rep(i,el$weight[i])}) %>% unlist()
 			el <- el[posi,-3]
 		}
@@ -100,6 +102,7 @@ twomode_onemode <- function(edge.list=edge.list,type=1,binary=F,cut.at=1,twopath
 		return(el)
 	}
 }
+
 
 
 
