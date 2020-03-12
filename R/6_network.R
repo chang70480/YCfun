@@ -57,13 +57,15 @@ twomode_onemode <- function(edge.list=edge.list,type=1,binary=F,cut.at=1,twopath
 	library(Matrix)
 	igraph <- graph.data.frame(d = edge.list,directed = F)
 	V(igraph)$type <- bipartite_mapping(igraph)$type
-	bi.matrix <- as_incidence_matrix(igraph,sparse = T)
+	#bi.matrix <- as_incidence_matrix(igraph,sparse = T)
 
-	if(type==2){
-		matrix <- Matrix::t(bi.matrix) %*% bi.matrix
-	}else if(type==1){
-		matrix <- bi.matrix %*% Matrix::t(bi.matrix)
-	}
+	# if(type==2){
+	# 	matrix <- Matrix::t(bi.matrix) %*% bi.matrix
+	# }else if(type==1){
+	# 	matrix <- bi.matrix %*% Matrix::t(bi.matrix)
+	# }
+
+	matrix <- bipartite.projection(igraph,multiplicity = T)[[type]][,]
 
 	diag(matrix) <- 0
 	if(binary){
