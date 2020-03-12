@@ -65,8 +65,8 @@ twomode_onemode <- function(edge.list=edge.list,type=1,binary=F,cut.at=1,twopath
 	# 	matrix <- bi.matrix %*% Matrix::t(bi.matrix)
 	# }
 
-	matrix <- bipartite.projection(igraph,multiplicity = T)[[type]][,]
-
+	ne <- bipartite.projection(igraph, multiplicity = T)[[type]]
+	matrix <- ne[,]
 	diag(matrix) <- 0
 	if(binary){
 		matrix[matrix<cut.at] <- 0
@@ -87,10 +87,10 @@ twomode_onemode <- function(edge.list=edge.list,type=1,binary=F,cut.at=1,twopath
 		igraph.matrix <- graph_from_adjacency_matrix(b_matrix,mode="undirected")
 		el <- as_edgelist(igraph.matrix) %>% tibble::as_data_frame(.)
 		if(outpute[1]=='edgelist2' & !binary){
-			el <- el  %>% add_column(weight=matrix[as.matrix(el)])
+			el <- el  %>% add_column(weight= E(ne)$weight)
 		}
 		if(outpute[1]=='edgelist3' & !binary){
-			el <- el  %>% add_column(weight=matrix[as.matrix(el)])
+			el <- el  %>% add_column(weight= E(ne)$weight)
 			posi <- lapply(1:nrow(el), function(i){rep(i,el$weight[i])}) %>% unlist()
 			el <- el[posi,-3]
 		}
