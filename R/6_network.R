@@ -60,9 +60,9 @@ twomode_onemode <- function(edge.list=edge.list,type=1,binary=F,cut.at=1,twopath
 	bi.matrix <- as_incidence_matrix(igraph,sparse = T)
 
 	if(type==2){
-		matrix <- t(bi.matrix) %*% bi.matrix
+		matrix <- Matrix::t(bi.matrix) %*% bi.matrix
 	}else if(type==1){
-		matrix <- bi.matrix %*% t(bi.matrix)
+		matrix <- bi.matrix %*% Matrix::t(bi.matrix)
 	}
 
 	diag(matrix) <- 0
