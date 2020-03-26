@@ -9,8 +9,10 @@
 #' @return the rescale numeric vector
 #' @export
 rec_range<- function(nuc.vec=NULL,to.min=NULL,to.max=NULL,dot=0){
-	if((is.numeric(nuc.vec)&is.numeric(nuc.vec)&is.numeric(nuc.vec))==F)
-		temp.nuc <- nuc.vec-min(nuc.vec,na.rm = T)
+	if((is.null(to.min)&is.null(to.max)))stop()
+	if(is.null(to.min))to.min <- min(nuc.vec,na.rm = T)
+	if(is.null(to.max))to.max <- max(nuc.vec,na.rm = T)
+	temp.nuc <- nuc.vec-min(nuc.vec,na.rm = T)
 	temp.nuc <- temp.nuc*((to.max-to.min)/max(temp.nuc,na.rm = T))
 	temp.nuc <- temp.nuc+to.min
 	return(round(temp.nuc,dot))
