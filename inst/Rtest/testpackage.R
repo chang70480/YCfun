@@ -19,27 +19,6 @@ library(YCfun)
 
 
 
-YCstart()
-
-YC
-help(package="YCfun")
-help(package="dplyr")
-
-?devtools
-?YCfun
-tscs()
-
-?twomode_onemode
-rec_new(1:4,"1,2=0;3,4=1")
-rec.new(1:4,"1,2=0;3,4=1")
-
-##
-
-library(rmarkdown)
-render("~/Documents/GitHub/YCfun/README.Rmd",md_document())
-
-##
-
 
 
 
