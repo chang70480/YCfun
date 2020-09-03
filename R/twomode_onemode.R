@@ -1,41 +1,3 @@
-#' \code{getRC} get R,C coordinate
-#'
-#' get matrix cell R,C coordinate with specific condition
-#'
-#' @param matrix matrix or igraph matrix
-#' @param condiction example matrix>3
-#' @param weight show values in matrix
-#' @param undirected undirected
-#' @param igraph matrix is igraph data?
-#'
-#' @return edgelist data_frame
-#' @export
-getRC <- function(matrix,condiction,weight=F,undirected=F,igraph=F){
-	require(igraph)
-
-	if(is.null(rownames(matrix)))rownames(matrix) <- 1:nrow(matrix)
-	if(is.null(colnames(matrix)))colnames(matrix) <- 1:ncol(matrix)
-	if(undirected)matrix[lower.tri(matrix,diag = F)] <- 0
-	if(!igraph){
-		condiction <- as.vector(condiction)
-		edgelist<- data_frame(from=rep(rownames(matrix),ncol(matrix))[condiction],
-							  to=rep(colnames(matrix),each=ncol(matrix))[condiction]
-		) %>% arrange(from,to)
-		if(weight){
-			edgelist$weight <- matrix[condiction]
-		}
-	}else{
-		matrix[condiction] <- 1
-		matrix[!condiction] <- 0
-		ig <- graph.adjacency(matrix)
-		edgelist <- get.edgelist(ig) %>% as.data.frame.matrix() %>% rename(from=1,to=2) %>% as.tibble()
-		edgelist$from <- as.character(edgelist$from)
-		edgelist$to <- as.character(edgelist$to)
-	}
-
-	return(edgelist)
-}
-
 #' Two-mode to one-mode
 #'
 #' Two-mode network transform into one-mode network. This function can make 1-mode network matrix,binary edgelist, weight edgelist, and you can set it is directed or not.
@@ -101,42 +63,4 @@ twomode_onemode <- function(edge.list=edge.list,type=1,binary=F,cut.at=1,twopath
 
 		return(el)
 	}
-}
-
-
-
-
-#' \code{isolate_posi} find network layout outliers
-#'
-#' find network layout outliers and move them close center
-#'
-#' @param l matrix. network plot position
-#' @param a recale time
-#' @param irq define outliers index
-#'
-#' @return matrix
-#' @export
-isolate_posi <- function(l,a=0.7,irq=1.5){
-	require(igraph)
-
-	IQR_outliers <- function(x,dis_time=1.5) {
-		if(any(is.na(x)))
-			stop("x is missing values")
-		if(!is.numeric(x))
-			stop("x is not numeric")
-		Q3<-quantile(x,0.75)
-		Q1<-quantile(x,0.25)
-		IQR<-(Q3-Q1)
-		left<- (Q1-(dis_time*IQR))
-		right<- (Q3+(dis_time*IQR))
-		return(x <left|x>right)
-	}
-	xd <- median(l[,1])
-	yd <- median(l[,2])
-	len <- (apply(l,1,function(i) sum((i-c(xd,yd))^2)^.5))
-	posi <- IQR_outliers(len,dis_time = irq)
-	if(any(posi)){
-		l[posi,] <- apply(matrix(l[posi,],ncol = 2),1,function(i) ((i-c(xd,yd))*(a^2))+c(xd,yd)) %>%t()
-	}
-	return(l)
 }
