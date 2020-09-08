@@ -4,12 +4,12 @@
 #'
 #' @param len set variable datatype
 #' @param at setting variable index
-#' @param defult defult datatype. read_csv using "?", and read_excel using "guess"
+#' @param default default datatype. read_csv using "?", and read_excel using "guess"
 #' @param readfun reading function, set which function do you use to read file.
 #'
 #' @return coltype
 #' @export
-coltype <- function(len,at=list(),defult=c("?","guess"),readfun=c("read_csv","read_excel")){
+coltype <- function(len,at=list(),default=c("?","guess"),readfun=c("read_csv","read_excel")){
 	lookupcols<- function (x){
 		switch(x, `_` = , `-` = col_skip(), `?` = col_guess(), c = col_character(),
 			   f = col_factor(), d = col_double(), i = col_integer(),
@@ -18,7 +18,7 @@ coltype <- function(len,at=list(),defult=c("?","guess"),readfun=c("read_csv","re
 			   										 x, call. = FALSE))
 	}
 	if(readfun[1]=="read_excel"){
-		vec <- rep(defult,len)
+		vec <- rep(default,len)
 		if(length(at)!=0){
 			for(i in names(at)){
 				vec[as.numeric(i)] <- at[[i]]
