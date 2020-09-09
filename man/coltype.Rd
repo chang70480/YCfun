@@ -7,7 +7,7 @@
 coltype(
   len,
   at = list(),
-  defult = c("?", "guess"),
+  default = c("?", "guess"),
   readfun = c("read_csv", "read_excel")
 )
 }
@@ -16,7 +16,7 @@ coltype(
 
 \item{at}{setting variable index}
 
-\item{defult}{defult datatype. read_csv using "?", and read_excel using "guess"}
+\item{default}{default datatype. read_csv using "?", and read_excel using "guess"}
 
 \item{readfun}{reading function, set which function do you use to read file.}
 }
