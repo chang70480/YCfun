@@ -9,6 +9,7 @@ library(roxygen2)
 ##install
 {
 library(devtools)
+library(YCfun)
 detach("package:YCfun", unload=TRUE)
 remove.packages("YCfun")
 install_github("chang70480/YCfun")
