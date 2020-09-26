@@ -8,11 +8,9 @@
 #'
 #' @export
 #' @return vector
-nato <- function(vec,to,Inf_include=T){
-	if(Inf_include){
-		vec[is.na(vec)|is.infinite(vec)] <- to
-	}else{
-		vec[is.na(vec)] <- to
-	}
+nato <- function(vec,to,Inf_include=T,NaN_include=T){
+	vec[is.na(vec)] <- to
+	if(Inf_include) vec[is.infinite(vec)] <- to
+	if(NaN_include) vec[is.nan(vec)] <- to
 	return(vec)
 }

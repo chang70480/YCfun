@@ -4,7 +4,7 @@
 \alias{nato}
 \title{recode NA}
 \usage{
-nato(vec, to, Inf_include = T)
+nato(vec, to, Inf_include = T, NaN_include = T)
 }
 \arguments{
 \item{vec}{vector}
