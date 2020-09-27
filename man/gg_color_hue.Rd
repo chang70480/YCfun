@@ -4,7 +4,7 @@
 \alias{gg_color_hue}
 \title{\code{gg_color_hue} generate ggplot colors.}
 \usage{
-gg_color_hue(n)
+gg_color_hue(n, change = list())
 }
 \arguments{
 \item{n}{How many color hueps do you want?}
