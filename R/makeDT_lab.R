@@ -44,11 +44,11 @@ makeDT_lab <- function(path="",type=c("sav","dta"),label_length=200,reencode=NUL
 
 		library(readstata13)
 		if(is.null(reencode)){
-			DT_ <- read.dta13(path,convert.factors = T,generate.factors = T,nonint.factors = T)
-			DT_n <- read.dta13(path,convert.factors = T,generate.factors = T,nonint.factors = F)
+			DT_ <- read.dta13(path,convert.factors = F)
+			DT_n <- read.dta13(path,convert.factors = F)
 		}else{
-			DT_ <- read.dta13(path,convert.factors = T,generate.factors = T,nonint.factors = T,encoding = reencode)
-			DT_n <- read.dta13(path,convert.factors = T,generate.factors = T,nonint.factors = F,encoding = reencode)
+			DT_ <- read.dta13(path,convert.factors = F,encoding = reencode)
+			DT_n <- read.dta13(path,convert.factors = F,encoding = reencode)
 		}
 
 		attr(DT_n,"variable.labels") <- varlabel(DT_n)
@@ -62,6 +62,9 @@ makeDT_lab <- function(path="",type=c("sav","dta"),label_length=200,reencode=NUL
 				attr(DT_n[[l]],"table") <- table(DT_n[[l]],useNA = "always")
 			}
 		}
+
+
+
 		return(DT_n %>% as_tibble())
 
 	}
