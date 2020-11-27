@@ -15,8 +15,8 @@ remove.packages("YCfun")
 install_github("chang70480/YCfun")
 
 library(YCfun)
-}
 
+}
 
 
 

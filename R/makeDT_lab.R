@@ -11,7 +11,7 @@
 #'
 #' @return data_frame
 #' @export
-makeDT_lab <- function(path="",type=c("sav","dta"),label_length=200,reencode=NULL){
+makeDT_lab <- function(path="",type=c("sav","dta"),label_length=20,reencode=NULL){
 	ll <- function(vec){
 		if(length(vec)>label_length){
 			return(vec[1:label_length])
@@ -54,13 +54,13 @@ makeDT_lab <- function(path="",type=c("sav","dta"),label_length=200,reencode=NUL
 		attr(DT_n,"variable.labels") <- varlabel(DT_n)
 		name_ <- get.label.name(DT_)
 		for (l in 1:length(DT_)) {
-			if(name_[l]!=""){
-				attr(DT_n[[l]],"value.labels") <- ll(get.label(DT_,name_[l]))
-			}
+
+			attr(DT_n[[l]],"value.labels") <- ll(get.label(DT_,name_[l]))
+
 			attr(DT_n[[l]],"variable.labels") <- as.character(varlabel(DT_)[l])
-			if(name_[l]!=""){
-				attr(DT_n[[l]],"table") <- table(DT_n[[l]],useNA = "always")
-			}
+
+			attr(DT_n[[l]],"table") <- ll(table(DT_n[[l]],useNA = "always"))
+
 		}
 
 
