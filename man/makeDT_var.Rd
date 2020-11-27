@@ -4,7 +4,7 @@
 \alias{makeDT_var}
 \title{\code{makeDT.var} generate varible label table}
 \usage{
-makeDT_var(DT = DT)
+makeDT_var(DT = DT, from = c("frame", "variable"))
 }
 \arguments{
 \item{DT}{data_frame}

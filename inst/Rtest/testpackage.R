@@ -4,7 +4,8 @@ library(devtools)
 library(roxygen2)
 	roxygenise(clean = T)
 	document()
-
+}
+{
 ##記得去github存檔
 ##install
 
