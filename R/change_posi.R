@@ -4,6 +4,7 @@
 #' @param recordtab data_frame. The table of the recode rule. V1 is old value; V2 is new value
 #' @param old vector. recoded aims
 #' @param quickNA efficienct option
+#' @copy copy else
 #'
 #' @return recoded vector
 #' @export

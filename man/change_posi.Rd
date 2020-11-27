@@ -4,7 +4,7 @@
 \alias{change_posi}
 \title{high efficiency recode}
 \usage{
-change_posi(recordtab, old = NULL, quickNA = T)
+change_posi(recordtab, old = NULL, quickNA = T, copy = F)
 }
 \arguments{
 \item{recordtab}{data_frame. The table of the recode rule. V1 is old value; V2 is new value}
