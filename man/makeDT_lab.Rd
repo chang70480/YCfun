@@ -7,7 +7,7 @@
 makeDT_lab(
   path = "",
   type = c("sav", "dta"),
-  label_length = 200,
+  label_length = 20,
   reencode = NULL
 )
 }
