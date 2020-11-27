@@ -4,10 +4,12 @@
 \alias{re.table}
 \title{\code{re.table} recode table}
 \usage{
-re.table(vec = vec)
+re.table(vec = vec, len = 25)
 }
 \arguments{
 \item{vec}{vector or data_frame}
+
+\item{len}{lenght of table summary}
 }
 \value{
 vector or data_frame
