@@ -16,7 +16,7 @@ makeDT_var <- function(DT=DT,from=c("frame","variable")){
 	}else {
 		for (i in 1:length(DT)) {
 			variable.labels <- attr(DT[[i]],'variable.labels')
-			if(!is.null(variable.labels)) temp$var.labels[i] <- variable.labels
+			if(length(variable.labels)>0) temp$var.labels[i] <- variable.labels[1]
 		}
 	}
 
